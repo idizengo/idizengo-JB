@@ -18,6 +18,6 @@ spec:
     spec: 
       containers: 
         - 
-          image: "somerepo/someapp:2"
-          name: some-application
+          image: "supergiantkir/animals:bear"
+          name: bear
 
