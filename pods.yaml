@@ -11,4 +11,4 @@ spec:
  - name: spring-music 
    image: spring-music:latest
    ports: 
-   - containerPort: 808
+   - containerPort: 8080
