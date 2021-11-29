@@ -1,20 +1,21 @@
 apiVersion: apps/v1
 kind: ReplicaSet
-metadata:
-  name: frontend
-  labels:
+metadata: 
+  labels: 
     app: ui
     tier: frontend
-spec:
+  name: frontend
+spec: 
   replicas: 3
-  selector:  
-    matchLabels:
+  selector: 
+    matchLabels: 
       tier: frontend
-  template:   
-    metadata:
-      labels:
+  template: 
+    metadata: 
+      labels: 
         tier: frontend
-    spec:
-      containers:
+    spec: 
+      containers: 
         - name: myapp
           image: yanivomc/spring-music:latest
+          
