@@ -19,13 +19,13 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: animal # has to match .spec.template.metadata.labels
+      app: animal
   serviceName: "animal"
   replicas: 3 # by default is 1
   template:
     metadata:
       labels:
-        app: animal # has to match .spec.selector.matchLabels
+        app: animal
     spec:
       terminationGracePeriodSeconds: 10
       containers:
