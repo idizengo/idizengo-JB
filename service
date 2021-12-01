@@ -14,3 +14,4 @@ spec:
     protocol: UDP
     port: 7372
     targetPort: 7372
+  type: LoadBalancer    
