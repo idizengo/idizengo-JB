@@ -1,20 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment-test
+  name: nginx-deployment
 spec:
   selector:
     matchLabels:
       app: nginx
-  replicas: 2
-  template: 
+  replicas: 4
+  template:
     metadata:
       labels:
         app: nginx
     spec:
       containers:
-      - name: spring-music
-        image: yanivomc/spring-music:latest
-        ports:
-        - containerPort: 8080
-
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
