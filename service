@@ -1,17 +1,34 @@
-kind: Service      # Create new service
-apiVersion: v1     
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: idizengo # Name of the service (DNS - RFC 2929)
+  name: spring-music-deployment
 spec:
   selector:
-    app: nginx    # Run on any pod with label - app:myapp
+    matchLabels:
+      app: spring-music
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: spring-music
+    spec:
+      containers:
+        - name: spring-music
+          image: yanivomc/spring-music:latest
+          ports:
+            - containerPort: 8080
+---
+kind: Service      # Create new service
+apiVersion: v1
+metadata:
+  name: my-spring-music-service # Name of the service (DNS - RFC 2929)
+spec:
+  selector:
+    app: spring-music    # Run on any pod with label - app:myapp
   ports:          # Map incoming port to target port
-  - name: thistoweb    # Setting multiple ports listen 
-    protocol: TCP
-    port: 80
-    targetPort: 8080
-  - name: management
-    protocol: UDP
-    port: 7372
-    targetPort: 7372
-  type: LoadBalancer    
+    - name: spring    # Setting multiple ports listen
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
+---
