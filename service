@@ -1,0 +1,16 @@
+kind: Service      # Create new service
+apiVersion: v1     
+metadata:
+  name: idizengo # Name of the service (DNS - RFC 2929)
+spec:
+  selector:
+    app: nginx    # Run on any pod with label - app:myapp
+  ports:          # Map incoming port to target port
+  - name: thistoweb    # Setting multiple ports listen 
+    protocol: TCP
+    port: 80
+    targetPort: 8080
+  - name: management
+    protocol: UDP
+    port: 7372
+    targetPort: 7372
