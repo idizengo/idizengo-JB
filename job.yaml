@@ -8,6 +8,6 @@ spec:
       containers:
       - name: pi
         image: alpine:latest
-        command: ["alpine",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+        command: ["pi",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
       restartPolicy: Never
   backoffLimit: 4
